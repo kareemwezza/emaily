@@ -14,9 +14,6 @@ class Header extends React.Component {
             <li>
               <a href="/auth/google">Login With Google</a>
             </li>
-            <li>
-              <a href="/auth/facebook">Login With Facebook</a>
-            </li>
           </React.Fragment>
         );
       default:

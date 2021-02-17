@@ -28,7 +28,6 @@ class SurveyList extends React.Component {
   }
 
   render() {
-    console.log(this.props.surveys);
     return <div>{this.renderSurveys()}</div>;
   }
 }
