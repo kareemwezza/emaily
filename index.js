@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoutes");
 const keys = require("./config/keys");
 require("./models/User");
+require("./models/Survey");
 const passportConfig = require("./services/passport");
 const faceCongig = require("./services/facebook");
 mongoose.connect(keys.mongoURI, {
@@ -26,6 +27,7 @@ app.use(passport.session());
 
 authRoutes(app);
 require("./routes/billingRoutes")(app);
+require("./routes/surveyRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

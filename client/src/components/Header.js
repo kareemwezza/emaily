@@ -10,9 +10,14 @@ class Header extends React.Component {
         return;
       case false:
         return (
-          <li>
-            <a href="/auth/google">Login With Google</a>
-          </li>
+          <React.Fragment>
+            <li>
+              <a href="/auth/google">Login With Google</a>
+            </li>
+            <li>
+              <a href="/auth/facebook">Login With Facebook</a>
+            </li>
+          </React.Fragment>
         );
       default:
         return (
@@ -20,6 +25,7 @@ class Header extends React.Component {
             <li>
               <Payments />
             </li>
+            <li>{this.props.auth.userName}</li>
             <li style={{ margin: "0 10px" }}>
               credits: {this.props.auth.credits}
             </li>

@@ -21,14 +21,14 @@ passport.use(
       enableProof: true,
       proxy: true,
     },
-    (accessToken, refreshToken, profile, cb) => {
+    (accessToken, refreshToken, profile, done) => {
       User.findOne({ facebookId: profile.id }).then((existingUser) => {
         if (existingUser) {
-          cb(null, existingUser);
+          done(null, existingUser);
         } else {
           new User({ facebookId: profile.id })
             .save()
-            .then((user) => cb(null, user));
+            .then((user) => done(null, user));
         }
       });
     }
